@@ -1,4 +1,6 @@
 import App from './App.svelte';
+import EventEmitter from 'events';
+import util from 'util';
 
 const app = new App({
 	target: document.body,

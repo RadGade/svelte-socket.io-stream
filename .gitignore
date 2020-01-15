@@ -1,4 +1,8 @@
 /node_modules/
 /public/build/
+/server/
+/Sveltron/
+/try2/
+/flicker/
 
 .DS_Store

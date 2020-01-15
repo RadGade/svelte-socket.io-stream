@@ -1,11 +1,21 @@
+
 <script>
 	export let name;
+	let file = "";
+	import {onMount} from 'svelte'
+	import io from 'socket.io-client'
+	import ss from 'socket.io-stream'
+	onMount(async function(){
+		const socket = await io('http://localhost:4200');
+		await console.log('emitting watch event')
+		ss(socket).emit('ferret', 'tobi', 'woot', function (data) { // args are sent in order to acknowledgement function
+      console.log(data); // data will be 'tobi says woot'
+    })
+	})
+
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
+<video src={file} controls width="320" height="240"></video>
 
 <style>
 	main {
